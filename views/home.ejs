@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareMood</title>
+    <link rel="stylesheet" href="../style.css">
+    <style type="text/css" media="screen"> 
+        #mood {
+            color: <%=data.color%>;
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+
+        <div id="board-heading">Company's Mood Board</div>
+
+        <a id="add-mood-button" href="/form">Write down how you are feeling!</a>
+
+        <p id="mood"><%=data.mood%></p>
+        <p id="mood"><%=data.description%></p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+    /* width: 100%; */
+}
+
+#board {
+    background-image: url('images/background-image.png');
+    height: 100%;
+    width: 100%;
+}
+
+#board-heading {
+    padding-top: 40px;
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+}
+
+#add-mood-button {
+    background-color: #F47E7E;
+    color: white;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 280px;
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+}

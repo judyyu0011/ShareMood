@@ -4,8 +4,10 @@ export class MoodBoard {
     avaliablePos = [
         { x: 100, y: 100 },
         { x: 1000, y: 100 },
-        { x: 795, y: 250 }];
-    stickyColours = { //dictionary of moods and their respective stickynot colour
+        { x: 795, y: 250 },
+        { x: 550, y: 500 },
+        { x: 399, y: 300}];
+    stickyColours = { //dictionary of moods and their respective stickynote colour
         "happy": "yellow",
         "sad": "blue",
         "anxious": "purple",

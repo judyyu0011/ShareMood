@@ -2,14 +2,10 @@ const express = require('express');
 const app = express();
 const { readFile } = require('fs');
 
-app.get('/', (request, response) => {
-    readFile('./index.html', 'utf8', (err, html) => {
+app.use(express.static(__dirname));
 
-        if (err) {
-            response.status(500).send('sorry, out of order');
-        }
-        response.send(html);
-    })
-})
+app.get('/', (req, res) => {
+    res.send('Hello Express')
+});
 
-app.listen(process.env.PORT || 3000, () => console.log(`http://localhost:3000`))
+app.listen(process.env.PORT || 3000, () => console.log(`http://localhost:3000`));

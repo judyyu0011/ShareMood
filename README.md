@@ -1,9 +1,9 @@
-#ShareMood
+# ShareMood
 One Paragraph of project description goes here
 
-##Getting Started
+## Getting Started
 git clone repo using SSH or HTTP
 
-##Prerequisites
+## Prerequisites
 npm install
 

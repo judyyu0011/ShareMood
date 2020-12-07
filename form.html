@@ -5,21 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script>
+        function storeEmotion(emo) {
+            var emotion = emo;
+
+        }
+    </script>
 </head>
 <body>
     <div>
+        <form>
         <h1>How are you feeling today?</h1>
-        <input class="cry" type="image" src= "https://www.flaticon.com/svg/static/icons/svg/742/742753.svg" onclick="Highlight(this, sad, nutral, happy, smile)">
-        <input class="sad" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg" onclick="Highlight(this,cry, nutral, happy, smile)">
-        <input class="nutral" type="image" src = " https://www.flaticon.com/svg/static/icons/svg/742/742774.svg" onclick="Highlight(this, sad, cry, happy, smile)">
-        <input class="happy" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742940.svg" onclick="Highlight(this, sad, nutral, cry, smile)">
-        <input class="laugh" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742920.svg" onclick="Highlight(this, sad, nutral, happy, cry)">
+        <img class="emoji" id="cry" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742753.svg" onclick="storeEmotion(this)">
+        <input type="radio" class="button" id="crybutton">
+        <img class="emoji" id="sad" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg" onclick="storeEmotion(this)">
+        <img class="emoji" id="neutral" type="image" src = " https://www.flaticon.com/svg/static/icons/svg/742/742774.svg" onclick="storeEmotion(this)">
+        <img class="emoji" id="happy" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742940.svg" onclick="storeEmotion(this)">
+        <img class="emoji" id="laugh" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742920.svg" onclick="storeEmotion(this)">
     </div>
-    <script>
-    function Highlight(a, b, c, d, e){
-        a.style.border = "1px solid blue";
-    }
-    </script>
+
+
 
     <div>
         <h4>Anxious</h4>
@@ -32,18 +38,23 @@
     <div>
         <h2>Describe your day</h2>
         <textarea class="TextMood" cols="30" rows="10"></textarea>
-     
-       <button class= "submit" type="button" onclick="myFunction(TextMood, cry,sad,nutral,happy,laugh)">Submit</button>
-       <script>
-           function myFunction(tb, m1,m2,m3,m4,m5){
-               var Word = document.getElementById("tb").value;
-               if(Word > 2){
-                window.alert("More than 100 words");
-               }
-           }
-       </script>
+        <!-- <input type="text" id="textbox" name="textbox"> -->
+        
+        <button class= "submit" type="button" onclick="myFunction(TextMood, cry,sad,nutral,happy,laugh)">Submit</button>
+        
+        
+        
+        <script>
+            function myFunction(tb, m1,m2,m3,m4,m5){
+                var Word = document.getElementById("tb").value;
+                if(Word > 2){
+                    window.alert("More than 100 words");
+                }
+            }
+        </script>
     </div>
 
+    </form>
 
 </body>
 </html>

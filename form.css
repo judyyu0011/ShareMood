@@ -13,7 +13,20 @@ h1 {
     
 }
 
-.cry{
+.emoji {
+    cursor: pointer;
+}
+
+.emoji:hover {
+    border: 3px solid blue;
+}
+
+.emoji:focus {
+    border: 3px solid red;
+    color: red;
+}
+
+#cry{
     position: absolute;
     width: 116px;
     height: 112px;
@@ -21,7 +34,7 @@ h1 {
     top: 100px;      
 }
 
-.sad{
+#sad{
     position: absolute;
     width: 121px;
     height: 112px;
@@ -42,21 +55,23 @@ h2{
     font-size: 36px;
     line-height: 48px;
 }
-.nutral{
+
+#neutral{
     position: absolute;
     width: 121px;
     height: 112px;
     left: 654px;
     top: 100px;
 }
-.happy{
+#happy{
     position: absolute;
     width: 118px;
     height: 112px;
     left: 818px;
     top: 100px;
 }
-.laugh{
+
+#laugh{
     position: absolute;
     width: 117px;
     height: 121px;
@@ -178,4 +193,20 @@ h8{
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
+}
+
+#textbox {
+    display: block;
+    position: absolute;
+    top: 300px;
+    width: 500px;
+    height: 180px;
+    left: 400px;
+    margin: auto;
+}
+
+.button {
+    display: absolute; 
+    top: 250px; 
+    left: 300px;
 }

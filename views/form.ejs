@@ -15,43 +15,46 @@
 </head>
 <body>
     <div>
-        <form>
         <h1>How are you feeling today?</h1>
-        <img class="emoji" id="cry" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742753.svg" onclick="storeEmotion(this)">
-        <input type="radio" class="button" id="crybutton">
-        <img class="emoji" id="sad" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg" onclick="storeEmotion(this)">
-        <img class="emoji" id="neutral" type="image" src = " https://www.flaticon.com/svg/static/icons/svg/742/742774.svg" onclick="storeEmotion(this)">
-        <img class="emoji" id="happy" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742940.svg" onclick="storeEmotion(this)">
-        <img class="emoji" id="laugh" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742920.svg" onclick="storeEmotion(this)">
+        <img class="emoji" id="cry" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742753.svg" >
+        <img class="emoji" id="sad" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg" >
+        <img class="emoji" id="neutral" type="image" src = " https://www.flaticon.com/svg/static/icons/svg/742/742774.svg" >
+        <img class="emoji" id="happy" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742940.svg" >
+        <img class="emoji" id="laugh" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742920.svg" >
     </div>
 
 
 
-    <div>
-        <h4>Anxious</h4>
-        <h5>Sad</h5>
-        <h6>Meh</h6>
-        <h7>Content</h7>
-        <h8>Excited</h8>
+    <div id="yeah">
+
+        
+            <input class= "click" name="drone" type="radio" id="cryt" value="cry">
+          
+            <input class="click" name="drone" type="radio" id="sadt" value="sad">
+            
+            <input class="click" name="drone" type="radio" id="Meht" value="Meh">
+           
+            <input class="click" name="drone" type="radio" id="Contentt" value="Content">
+         
+            <input class= "click" name="drone" type="radio" id="Excitedt" value="Excited">
+           
+          
     </div>
+
+    <h4>Anxious</h4>
+    <h5>Sad</h5>
+    <h6>Meh</h6>
+    <h7>Content</h7>
+    <h8>Excited</h8>
 
     <div>
         <h2>Describe your day</h2>
         <textarea class="TextMood" cols="30" rows="10"></textarea>
         <!-- <input type="text" id="textbox" name="textbox"> -->
         
-        <button class= "submit" type="button" onclick="myFunction(TextMood, cry,sad,nutral,happy,laugh)">Submit</button>
         
+        <a class="submit" href="http://localhost:3000/">Submit</a>
         
-        
-        <script>
-            function myFunction(tb, m1,m2,m3,m4,m5){
-                var Word = document.getElementById("tb").value;
-                if(Word > 2){
-                    window.alert("More than 100 words");
-                }
-            }
-        </script>
     </div>
 
     </form>

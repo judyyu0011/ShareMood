@@ -17,14 +17,6 @@ h1 {
     cursor: pointer;
 }
 
-.emoji:hover {
-    border: 3px solid blue;
-}
-
-.emoji:focus {
-    border: 3px solid red;
-    color: red;
-}
 
 #cry{
     position: absolute;
@@ -79,6 +71,7 @@ h2{
     top: 97px;
 }
 
+
 .TextMood{
     outline: none;
     text-align: left;
@@ -115,10 +108,13 @@ background-color: black;
 color: white;
 display: block;
 margin: auto;
+text-decoration: none;
 }
 
+
+
 h4{
-    position: absolute;
+position: absolute;
 width: 127px;
 height: 26px;
 left: 379px;
@@ -150,7 +146,7 @@ color: #000000;
 }
 
 h6{
-    position: absolute;
+position: absolute;
 width: 127px;
 height: 26px;
 left: 707px;
@@ -181,6 +177,7 @@ line-height: 24px;
 
 color: #000000;
 }
+
 h8{
     position: absolute;
     width: 127px;
@@ -195,7 +192,17 @@ h8{
     line-height: 24px;
 }
 
-#textbox {
+.click{
+    margin: 70px;
+    margin-top: 200px;
+}
+
+#yeah{
+    margin-left: 370px;
+}
+
+
+.textbox {
     display: block;
     position: absolute;
     top: 300px;

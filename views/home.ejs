@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShareMood</title>
     <link rel="stylesheet" href="../style.css">
-    <style type="text/css" media="screen"> 
-        #mood {
-            color: <%=data.color%>;
-        }
-    </style>
 </head>
 <body>
     <div id="board">
@@ -18,8 +13,26 @@
 
         <a id="add-mood-button" href="/form">Write down how you are feeling!</a>
 
-        <p id="mood"><%=data.mood%></p>
-        <p id="mood"><%=data.description%></p>
+
+        
+            <% data.forEach((item)=>{%> 
+                <% if (item.mood=="neutral") { %>
+                    <div class="sticky neutral"><%=item.mood%></div>
+                <% } %>
+                <% if (item.mood=="happy") { %>
+                    <div class="sticky happy"><%=item.mood%></div>
+                <% } %>
+                <% if (item.mood=="sad") { %>
+                    <div class="sticky sad"><%=item.mood%></div>
+                <% } %>
+                <% if (item.mood=="excited") { %>
+                    <div class="sticky excited"><%=item.mood%></div>
+                <% } %>
+                <% if (item.mood=="anxious") { %>
+                    <div class="sticky anxious"><%=item.mood%></div>
+                <% } %>
+            <%});%> 
+        
 
     </div>
 </body>

@@ -6,8 +6,14 @@ app.set('view engine', 'ejs')
 
 
 app.get('/', (req, res) => {
-    var data = {mood: "happy", description: "this is happy description", color: "red"}
+    var data = [{mood: "happy", description: "this is happy description", color: "red"}, 
+    {mood: "sad", description: "this is sad description", color: "blue"},
+    {mood: "neutral", description: "this is neutral description", color: "green"},
+    {mood: "excited", description: "this is excited description", color: "orange"},
+    {mood: "anxious", description: "this is anxious description", color: "purple"}]
 
+    // var data = {name:'Akashdeep', 
+    // hobbies:['playing football', 'playing chess', 'cycling']} 
     res.render('home', {data:data});
 });
 

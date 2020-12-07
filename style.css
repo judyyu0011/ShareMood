@@ -29,3 +29,50 @@ html, body {
     padding: 10px;
     text-decoration: none;
 }
+
+
+.sticky {
+    display: absolute;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 50px;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+}
+
+.neutral {
+    background-color: lightgreen;
+    display: absolute;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+.happy {
+    background-color: yellow;
+    display: absolute;
+    margin-left: 600px;
+    margin-top: 50px;
+}
+
+.sad {
+    background-color: lightblue;
+    display: absolute;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.anxious {
+    background-color: mediumslateblue;
+    display: absolute;
+    margin-left: 1000px;
+    margin-top: -300px;
+}
+
+.excited {
+    background-color: orange;
+    display: absolute;
+    margin-left: 800px;
+    margin-top: -100px;
+}

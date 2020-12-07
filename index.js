@@ -4,8 +4,6 @@ const app = express();
 app.use(express.static(__dirname));
 app.set('view engine', 'ejs')
 
-
-
 app.get('/', (req, res) => {
     var data = {mood: "happy", description: "this is happy description", color: "red"}
 

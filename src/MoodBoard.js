@@ -45,6 +45,7 @@ export class MoodBoard {
         } else {
             // throw error here??? We want to throw some 400 error or something to FE
         }
+        this.notes.push(sticky);
     }
 
     // takes in String mood

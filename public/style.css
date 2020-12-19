@@ -4,7 +4,7 @@ html, body {
 }
 
 #board {
-    background-image: url('/images/background-image.png');
+    background-image: url('./images/background-image.png');
     height: 100%;
     width: 100%;
 }

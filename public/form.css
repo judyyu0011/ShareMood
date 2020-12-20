@@ -1,219 +1,105 @@
-h1 {
-    position: absolute;
-    width: 438px;
-    height: 53px;
-    left: 510px;
-    top: 0px;
-    
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: normal;
+.form-container {
+    width: 800px;
+    height: 1000px;
+    /* background-color: rgb(255, 255, 221);  */
+    margin: auto;
+    position: relative;
+}
+
+.heading {
+    position: relative;
     font-size: 36px;
-    line-height: 48px;
+    margin: auto;
+    width: 400px;
+    top: 50px;
+}
+
+
+.form-content {
+    position: relative;
+    top: 150px;
+    /* background-color: aqua; */
+}
+
+.emojis {
+    position: relative;
+    width: 520px;
+    margin: auto;
+    display: flex;
     
 }
 
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+/* IMAGE STYLES
+[type=radio] + img + [class=caption] {
+    cursor: pointer;
+    position: relative;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 1;
+} */
+
+
+/* IMAGE STYLES */
 .emoji {
     cursor: pointer;
+    position: relative;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 1;
 }
 
-
-#cry{
-    position: absolute;
-    width: 116px;
-    height: 112px;
-    left: 354px;
-    top: 100px;      
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 3px solid black;
 }
 
-#sad{
-    position: absolute;
-    width: 121px;
-    height: 112px;
-    left: 497px;
-    top: 100px;
-}
-
-h2{
-    position: absolute;
-    width: 296px;
-    height: 52px;
-    left: 581px;
-    top: 236px;
-    
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 48px;
-}
-
-#neutral{
-    position: absolute;
-    width: 121px;
-    height: 112px;
-    left: 654px;
-    top: 100px;
-}
-#happy{
-    position: absolute;
-    width: 118px;
-    height: 112px;
-    left: 818px;
-    top: 100px;
-}
-
-#laugh{
-    position: absolute;
-    width: 117px;
-    height: 121px;
-    left: 970px;
-    top: 97px;
-}
-
-
-.TextMood{
-    outline: none;
-    text-align: left;
-    padding: 0.4em 0.4em 0.4em 0;
-    border: 2px solid #cdcdcd;
-    border-color: rgba(0,0,0,.15);
-    background-color: white;
-    font-size: 16px;
-    font-family: Red Hat Display;
-    
-    position: absolute;
-    width: 589px;
-    height: 163px;
-    left: 410px;
-    top: 320px;
-}
-
-.submit{
-    position: absolute;
-    width: 165px;
-    height: 66px;
-    left: 650px;
-    top: 520px;
-
-font-family: Red Hat Display;
-font-style: normal;
-font-weight: normal;
-font-size: 36px;
-line-height: 48px;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: black;
-color: white;
-display: block;
-margin: auto;
-text-decoration: none;
-}
-
-
-
-h4{
-position: absolute;
-width: 127px;
-height: 26px;
-left: 379px;
-top: 195px;
-
-font-family: Red Hat Display;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-
-color: #000000;
-}
-
-h5{
-    position: absolute;
-width: 127px;
-height: 26px;
-left: 543px;
-top: 190px;
-
-font-family: Red Hat Display;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-
-color: #000000;
-}
-
-h6{
-position: absolute;
-width: 127px;
-height: 26px;
-left: 707px;
-top: 180px;
-
-font-family: Red Hat Display;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-
-color: #000000;
-
-}
-
-h7{
-    position: absolute;
-width: 127px;
-height: 26px;
-left: 845px;
-top: 223px;
-
-font-family: Red Hat Display;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-
-color: #000000;
-}
-
-h8{
-    position: absolute;
-    width: 127px;
-    height: 26px;
-    left: 1000px;
-    top: 225px;
-    
-    font-family: Red Hat Display;
-    font-style: normal;
-    font-weight: normal;
+.caption {
+    text-align: center;
     font-size: 18px;
-    line-height: 24px;
+    font-weight: 700;
 }
 
-.click{
-    margin: 70px;
-    margin-top: 200px;
-}
-
-#yeah{
-    margin-left: 370px;
-}
-
-
-.textbox {
-    display: block;
-    position: absolute;
-    top: 300px;
+.description-container {
+    position: relative;
+    top: 30px;
     width: 500px;
-    height: 180px;
-    left: 400px;
     margin: auto;
 }
 
-.button {
-    display: absolute; 
-    top: 250px; 
-    left: 300px;
+.description-text {
+    text-align: center;
+    font-weight: lighter;
+}
+
+.description-box {
+    top: 20px;
+    position: relative;
+    margin: auto;
+    width: 458px;
+}
+
+textarea {
+    resize: none;
+    font-size: 15px;
+}
+
+.submit-button {
+    display: block;
+    position: relative;
+    top: 300px;
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
 }

@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel = "stylesheet" href="../public/form.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel = "stylesheet" href="../public/form.css">
+    <script src="../public/app.js"></script>
+    <title>Mood Form</title>
 
-    <script>
-        function storeEmotion(emo) {
-            var emotion = emo;
-
-        }
-    </script>
 </head>
 <body>
-    <div>
-        <h1>How are you feeling today?</h1>
-        <img class="emoji" id="cry" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742753.svg" >
-        <img class="emoji" id="sad" type="image" src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg" >
-        <img class="emoji" id="neutral" type="image" src = " https://www.flaticon.com/svg/static/icons/svg/742/742774.svg" >
-        <img class="emoji" id="happy" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742940.svg" >
-        <img class="emoji" id="laugh" type="image" src = "https://www.flaticon.com/svg/static/icons/svg/742/742920.svg" >
+
+    <div class="form-container">
+
+        <div class="heading">How are you feeling today?</div>
+
+
+        <div class="form-content">
+            <form name="mood-form" id="mood-form">
+                <div class="emojis">
+                    <label class="emoji">
+                        <input type="radio" id="anxious" name="mood" value="cry" required>
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/742/742753.svg">
+                        <p class="caption">Anxious</p>
+                    </label>
+                    <label class="emoji">
+                        <input type="radio" id="sad" name="mood" value="cry">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/742/742752.svg">
+                        <p class="caption">Sad</p>
+                    </label>
+                    <label class="emoji">
+                        <input type="radio" id="neutral" name="mood" value="cry">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/742/742774.svg">
+                        <p class="caption">Meh</p>
+                    </label>
+                    <label class="emoji">
+                        <input type="radio" id="happy" name="mood" value="cry">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/742/742940.svg">
+                        <p class="caption">Happy</p>
+                    </label>
+                    <label class="emoji">
+                        <input type="radio" id="excited" name="mood" value="cry">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/742/742920.svg">
+                        <p class="caption">Excited</p>
+                    </label>
+                </div> 
+
+                <input class="submit-button" type="submit" value="Submit" onlick="validateForm()">
+
+            </form>
+
+            <div class="description-container">
+                <h2 class="description-text">Tell us about your day!</h2>
+                <div class="description-box">
+                    <textarea name="description" form="mood-form" cols="50" rows="5" maxlength="150" required></textarea>
+                </div>
+            </div>  
+        </div>
     </div>
-
-
-
-    <div id="yeah">
-
-        
-            <input class= "click" name="drone" type="radio" id="cryt" value="cry">
-          
-            <input class="click" name="drone" type="radio" id="sadt" value="sad">
-            
-            <input class="click" name="drone" type="radio" id="Meht" value="Meh">
-           
-            <input class="click" name="drone" type="radio" id="Contentt" value="Content">
-         
-            <input class= "click" name="drone" type="radio" id="Excitedt" value="Excited">
-           
-          
-    </div>
-
-    <h4>Anxious</h4>
-    <h5>Sad</h5>
-    <h6>Meh</h6>
-    <h7>Content</h7>
-    <h8>Excited</h8>
-
-    <div>
-        <h2>Describe your day</h2>
-        <textarea class="TextMood" cols="30" rows="10"></textarea>
-        <!-- <input type="text" id="textbox" name="textbox"> -->
-        
-        
-        <a class="submit" href="http://localhost:3000/">Submit</a>
-        
-    </div>
-
-    </form>
 
 </body>
 </html>

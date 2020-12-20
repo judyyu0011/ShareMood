@@ -1,23 +1,7 @@
 const express = require('express');
 const app = express();
+const port = 3000;
 
-app.use(express.static(__dirname));
-app.set('view engine', 'ejs')
+app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    var data = [{mood: "happy", description: "this is happy description", color: "red"}, 
-    {mood: "sad", description: "this is sad description", color: "blue"},
-    {mood: "neutral", description: "this is neutral description", color: "green"},
-    {mood: "excited", description: "this is excited description", color: "orange"},
-    {mood: "anxious", description: "this is anxious description", color: "purple"}]
-
-    // var data = {name:'Akashdeep', 
-    // hobbies:['playing football', 'playing chess', 'cycling']} 
-    res.render('home', {data:data});
-});
-
-app.get('/form', (req, res) => {
-    res.render('form');
-});
-
-app.listen(process.env.PORT || 3000, () => console.log(`http://localhost:3000`));
+app.listen(process.env.PORT || port, () => console.log(`http://localhost:${port}`));

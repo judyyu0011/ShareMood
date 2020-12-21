@@ -1,6 +1,6 @@
 
 
-export class MoodBoard {
+class MoodBoard {
     //list of avaliable stickynote positions
     avaliablePos = [
         { x: 100, y: 100 },
@@ -14,7 +14,7 @@ export class MoodBoard {
         "happy": "yellow",
         "sad": "blue",
         "anxious": "purple",
-        "meh": "green",
+        "neutral": "green",
         "excited": "orange"
     }
 
@@ -27,24 +27,24 @@ export class MoodBoard {
         this.takenPos = [];
     }
 
-    // return list of all notes on board
-    getBoard() {
-        return notes;
-    }
 
     // takes in a JSON object containing mood and message info from frontend form 
     generateSticky(info) {
         let sticky = {};
-        sticky.colour = getStickyColour(info.mood);
-        sticky.message = info.message;
+        sticky.colour = this.getStickyColour(info.mood);
+        sticky.message = info.description;
         
-        let pos = sticky.getStickyPosition();
+        // let pos = sticky.getStickyPosition();
+        let pos = this.getStickyPosition();
         if (pos !== false){
             sticky.posx = pos.x;
             sticky.posy = pos.y;
         } else {
             // throw error here??? We want to throw some 400 error or something to FE
         }
+        console.log("Sticky generated:");
+        console.log(sticky);
+        this.takenPos.push(pos);
         this.notes.push(sticky);
     }
 
@@ -58,10 +58,16 @@ export class MoodBoard {
     // if no avaliable position, return false
     getStickyPosition(){
         let pos; //JSON with x & y coordinates
-        if (this.takenPos.length < this.avaliablePos.length){
+        if (this.avaliablePos.length >= 0){
             pos = this.avaliablePos.pop();
+            return pos;
         } else {
             return false; // no more avaliable positions
         }
     }
+}
+
+// to export class for use in index + other classes
+module.exports = {
+    MoodBoard: MoodBoard
 }

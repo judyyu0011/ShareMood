@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShareMood</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script src="board.js"></script>
+    <title>ShareMood</title>
+
 </head>
 <body>
     <div id="board">
@@ -15,4 +19,18 @@
     
     </div>
 </body>
+
+    <!-- <script>
+        var mood = sessionStorage.getItem("mood");
+        var description = sessionStorage.getItem("description");
+        if (name != null) {
+            console.log(mood);
+
+            var sticky = document.createElement('div');
+            board = document.getElementById('board');
+            board.appendChild(sticky);
+            sticky.innerHTML = mood + description;
+        }
+    </script> -->
+
 </html>

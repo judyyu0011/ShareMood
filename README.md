@@ -7,4 +7,7 @@ ShareMood is an interactive platform for employees to check-in by anonymously sh
 git clone repo using SSH or HTTP
 npm install
 
+To run the web app:
+node .
+
 ## Prerequisites

@@ -30,11 +30,13 @@
 }
 
 /* HIDE RADIO */
+/* width and height are not 0 so the validation message still appears */
 [type=radio] { 
     position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
+    width: 30px;
+    height: 30px;
+    top: 100px;
 }
 
 

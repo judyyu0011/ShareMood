@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 
 // handles post request sent from form submit
 app.post('/form',(req, res)=>{
-    res.send(req.body);
+
+    var stickyList = [{colour: 'yellow', message: 'happy', posx: 399, posy: 300}, {colour: 'blue', message: 'sad', posx: 550, posy: 800}]
+    res.send(stickyList);
 });
 
 app.listen(process.env.PORT || port, () => console.log(`http://localhost:${port}`));

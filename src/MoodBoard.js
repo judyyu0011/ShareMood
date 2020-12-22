@@ -21,7 +21,6 @@ class MoodBoard {
     notes; //list of stickynotes JSON
     takenPos; //list of taken positions 
 
-
     constructor(){
         this.notes = [];
         this.takenPos = [];
@@ -52,16 +51,45 @@ class MoodBoard {
         return this.stickyColours[mood];
     }
 
+    usedCoordinates = new Set();
+
     // gets position Object from avaliable positions
     // if no avaliable position, return false
     getStickyPosition(){
         let pos; //JSON with x & y coordinates
-        if (this.avaliablePos.length >= 0){
-            pos = this.avaliablePos.pop();
-            return pos;
-        } else {
-            return false; // no more avaliable positions
+
+        pos = this.generateCoordinates();
+
+        console.log(pos);
+        while (this.usedCoordinates.has(pos)) {
+            console.log("inside while loop");
+            pos = this.generateCoordinates();
         }
+        this.usedCoordinates.add(pos);
+
+        console.log(this.usedCoordinates);
+
+        return JSON.parse(pos);
+
+        // if (this.avaliablePos.length >= 0){
+        //     pos = this.avaliablePos.pop();
+        //     return pos;
+        // } else {
+        //     return false; // no more avaliable positions
+        // }
+    }
+
+    generateCoordinates() {
+
+        var multiple = 50 - (Math.floor((Math.random() * 10) + 1));
+
+        // generate a random number between 1 and 21, multiply by multiple (x range: 50-1050)
+        var x = Math.floor((Math.random() * 21) + 1) * multiple;
+
+        // generate a random number between 3 and 12, multiply by multiple (y range: 150-600)
+        var y = Math.floor((Math.random() * 10) + 3) * multiple;
+
+        return JSON.stringify({x:x, y:y});
     }
 }
 

@@ -20,13 +20,14 @@ $(document).ready(()=>{
         board.appendChild(stickyVisual);
         stickyVisual.innerHTML = stickyMes;
 
-        const stickySize = 100;
+        const stickySize = 50;
 
         stickyVisual.style.position = 'absolute';
         stickyVisual.style.left = stickyPosX + 'px';
         stickyVisual.style.top = stickyPosY + 'px';
         stickyVisual.style.width = stickySize + 'px';
         stickyVisual.style.height = stickySize + 'px';
+        stickyVisual.style.fontSize = '12px';
 
         // set sticky image based on colour
         if (stickyColor == 'purple') {
@@ -46,5 +47,4 @@ $(document).ready(()=>{
             stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
         } 
     }
-
 });

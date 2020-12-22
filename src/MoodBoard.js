@@ -42,8 +42,6 @@ class MoodBoard {
         } else {
             // throw error here??? We want to throw some 400 error or something to FE
         }
-        console.log("Sticky generated:");
-        console.log(sticky);
         this.takenPos.push(pos);
         this.notes.push(sticky);
     }

@@ -15,8 +15,6 @@ app.post('/form',(req, res)=>{
     console.log(JSON.stringify(req.body));
 
     board.generateSticky(req.body);
-    console.log(board.avaliablePos);
-    console.log(board.takenPos);
 
     console.log(board.notes);
     //send back board (list of all notes currently on board)

@@ -2,7 +2,7 @@ $(document).ready(()=>{
 
     var length = sessionStorage.getItem("stickies-length");
 
-    var board = document.getElementById('board');
+    var stickiesContainer = document.getElementById('stickies');
 
     // loop over sticky data stored in session storage
     // place and style each sticky
@@ -17,7 +17,7 @@ $(document).ready(()=>{
         var stickyPosY = stickyObject.posy;
 
         var stickyVisual = document.createElement('div');
-        board.appendChild(stickyVisual);
+        stickiesContainer.appendChild(stickyVisual);
         stickyVisual.innerHTML = stickyMes;
 
         const stickySize = 50;

@@ -87,7 +87,7 @@ class MoodBoard {
         var x = Math.floor((Math.random() * 21) + 1) * multiple;
 
         // generate a random number between 3 and 12, multiply by multiple (y range: 150-600)
-        var y = Math.floor((Math.random() * 10) + 3) * multiple;
+        var y = Math.floor((Math.random() * 10) + 1) * multiple;
 
         return JSON.stringify({x:x, y:y});
     }

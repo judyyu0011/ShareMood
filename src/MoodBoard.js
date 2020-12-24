@@ -49,9 +49,8 @@ class MoodBoard {
                 // let converted = loadHelper.toJSONArray(str);
                 let converted = this.toJSONArray(str);
                 this.notes = converted;
-                console.log("Saved stickies:");
-                console.log(converted);
-                console.log(this.notes);
+                // console.log("Saved stickies:");
+                // console.log(this.notes);
             }));
         }  
     }

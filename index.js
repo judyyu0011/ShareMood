@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const moodboard = require('./src/MoodBoard.js');
-const loader = require('./src/LoadHelper.js');
 const app = express();
 const port = 3000;
 

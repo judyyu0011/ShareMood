@@ -36,7 +36,6 @@ html, body {
     text-decoration: none;
 }
 
-
 #stickies {
     position: relative;
     top: 10px;
@@ -44,15 +43,3 @@ html, body {
     height: 500px;
     margin: auto;
 }
-
-/* 
-.sticky {
-    display: absolute;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 50px;
-    color: black;
-    font-size: 20px;
-    text-align: center;
-    width: 100px;
-} */

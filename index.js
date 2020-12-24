@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const moodboard = require('./src/MoodBoard.js');
+const loader = require('./src/LoadHelper.js');
 const app = express();
 const port = 3000;
 
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 const board = new moodboard.MoodBoard();
 
 // handles post request sent from form submit
-app.post('/form',(req, res)=>{ 
+app.post('/form',(req, res)=>{
     console.log(JSON.stringify(req.body));
 
     board.generateSticky(req.body);

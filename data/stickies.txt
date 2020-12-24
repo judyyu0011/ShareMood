@@ -1,0 +1,1 @@
+{"colour":"yellow","message":"I am happy","posx":50,"posy":50},{"colour":"blue","message":"I am sad","posx":10,"posy":95},{"colour":"orange","message":"I am excited","posx":50,"posy":50}

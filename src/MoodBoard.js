@@ -117,6 +117,8 @@ class MoodBoard {
             sticky.posy = pos.y;
         } else {
             // throw error here??? We want to throw some 400 error or something to FE
+            // Note to self (Jen): res.send error responses in index.js
+            // https://codeforgeek.com/handling-http-status-code-like-a-pro/
         }
         // save stickies locally
         this.takenPos.push(pos);

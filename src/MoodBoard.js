@@ -47,12 +47,32 @@ class MoodBoard {
                 //let str = fs.readFileSync("./data/stickies.txt").toString();
                 let str = fs.readFileSync(this.dataPath).toString();
                 // let converted = loadHelper.toJSONArray(str);
-                let converted = this.toJSONArray(str);
-                this.notes = converted;
+                if (str.length != 0){
+                    let converted = this.toJSONArray(str);
+                    let filtered = this.filterValidData(converted);
+                    // this.notes = converted;
+                    if (filtered != false){
+                        this.notes = filtered;
+                    }
+                }
                 // console.log("Saved stickies:");
                 // console.log(this.notes);
             }));
         }  
+    }
+
+    // filter for valid stickie JSON
+    filterValidData(arr){
+        let filtered = [];
+        for (let elem of arr){
+            if (elem.hasOwnProperty("colour") && elem.hasOwnProperty("message") &&
+            elem.hasOwnProperty("posx") &&elem.hasOwnProperty("posy")){
+                filtered.push(elem);
+            }
+        }
+        if (filtered.length == 0){
+            return false;
+        }
     }
 
     toJSONArray(str){

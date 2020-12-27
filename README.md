@@ -10,4 +10,5 @@ npm install
 To run the web app:
 node .
 
-## Prerequisites
+## Technical Pre-requisites
+A file named "stickies.txt" must exist within data folder to save and load all stickies data.

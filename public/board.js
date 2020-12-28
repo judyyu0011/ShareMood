@@ -2,7 +2,9 @@ $(document).ready(()=>{
 
     // load board
     $.get('/board', function(data) {
+        var board = document.getElementById('board');
         var stickiesContainer = document.getElementById('stickies');
+
         for (var i = 0; i < data.length; i++) {
             var stickyObject = data[i];
 
@@ -17,30 +19,102 @@ $(document).ready(()=>{
 
             const stickySize = 50;
 
+            stickyVisual.classList.add('sticky');
+
             stickyVisual.style.position = 'absolute';
             stickyVisual.style.left = stickyPosX + 'px';
             stickyVisual.style.top = stickyPosY + 'px';
             stickyVisual.style.width = stickySize + 'px';
             stickyVisual.style.height = stickySize + 'px';
             stickyVisual.style.fontSize = '12px';
+            stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
 
             // set sticky image based on colour
-            if (stickyColor == 'purple') {
-                stickyVisual.style.backgroundImage = "url('images/sticky-purple.png')";
-                stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
-            } else if (stickyColor == 'blue') {
-                stickyVisual.style.backgroundImage = "url('images/sticky-blue.png')";
-                stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
-            } else if (stickyColor == 'green') {
-                stickyVisual.style.backgroundImage = "url('images/sticky-green.png')";
-                stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
-            } else if (stickyColor == 'yellow') {
-                stickyVisual.style.backgroundImage = "url('images/sticky-yellow.png')";
-                stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
-            } else if (stickyColor == 'orange') {
-                stickyVisual.style.backgroundImage = "url('images/sticky-orange.png')";
-                stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
-            } 
+            setBackground(stickyVisual, stickyColor);
+
+            function setBackground(e, color) {
+                if (color == 'purple') {
+                    e.style.backgroundImage = "url('images/sticky-purple.png')";
+                    e.classList.add('purple');
+                } else if (color == 'blue') {
+                    e.style.backgroundImage = "url('images/sticky-blue.png')";
+                    e.classList.add('blue');
+                } else if (color == 'green') {
+                    e.style.backgroundImage = "url('images/sticky-green.png')";
+                    e.classList.add('green');
+                } else if (color == 'yellow') {
+                    e.style.backgroundImage = "url('images/sticky-yellow.png')";
+                    e.classList.add('yellow');
+                } else if (color == 'orange') {
+                    e.style.backgroundImage = "url('images/sticky-orange.png')";
+                    e.classList.add('orange');
+                } 
+            }
+
         }
+
+        var stickyList = document.getElementsByClassName('sticky');
+
+        var popUpContainer = document.createElement('div');
+        board.appendChild(popUpContainer);
+
+        // add an event listener on every sticky
+        // a pop up opens upon click
+        for (const sticky of stickyList) {
+            sticky.addEventListener('click', function() {
+
+                // if there is already a pop up, remove it
+                while (popUpContainer.firstChild) {
+                    popUpContainer.removeChild(popUpContainer.firstChild);
+                }
+
+                var popUp = document.createElement('div');
+                popUpContainer.appendChild(popUp);
+                popUp.classList.add('sticky-popup');
+                popUp.style.backgroundImage = sticky.style.backgroundImage;
+
+                // sticky mood
+                var mood = document.createElement('div');
+                popUp.appendChild(mood);
+                mood.className = ('popup-mood');
+
+                if (sticky.classList.contains('purple')) {
+                    mood.innerHTML = 'Anxious';
+                } else if (sticky.classList.contains('blue')) {
+                    mood.innerHTML = 'Sad';
+                } else if (sticky.classList.contains('green')) {
+                    mood.innerHTML = 'Meh';
+                } else if (sticky.classList.contains('yellow')) {
+                    mood.innerHTML = 'Happy';
+                } else if (sticky.classList.contains('orange')) {
+                    mood.innerHTML = 'Excited';
+                }
+
+                // sticky description
+                var popUpDes = document.createElement('span');
+                popUp.appendChild(popUpDes);
+                popUpDes.className = 'popup-description'
+                popUpDes.innerHTML = sticky.innerHTML;
+
+                // sticky close button
+                var closeButton = document.createElement('img');
+                closeButton.setAttribute("src", "images/close.png");
+                closeButton.setAttribute("width", "35");
+                closeButton.setAttribute("alt", "Close");
+                popUp.appendChild(closeButton);
+                closeButton.className = 'close-button';
+
+                closeButton.addEventListener('click', function() {
+                    while (popUpContainer.firstChild) {
+                        popUpContainer.removeChild(popUpContainer.firstChild);
+                    }
+                })
+                
+                
+            });
+        }
+
+
+
     });
 });

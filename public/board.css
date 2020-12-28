@@ -43,3 +43,43 @@ html, body {
     height: 500px;
     margin: auto;
 }
+
+.sticky {
+    cursor: pointer;
+}
+
+.sticky-popup {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 480px;
+    height: 480px;
+    top: 150px;
+    text-align: center;
+    line-height: 480px;
+}
+
+.popup-description {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 24px;
+}
+
+.close-button {
+    display: block;
+    position: relative;
+    top: -460px;
+    left: 430px;
+    cursor: pointer;
+}
+
+.popup-mood {
+    line-height: 0;
+    position: absolute;
+    font-size: 50px;
+    top: 50px;
+    margin: auto;
+    width: 480px;
+}

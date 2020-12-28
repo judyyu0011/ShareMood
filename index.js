@@ -11,14 +11,22 @@ app.use(bodyParser.json());
 const board = new moodboard.MoodBoard();
 
 // handles post request sent from form submit
-app.post('/form',(req, res)=>{ 
-    console.log(JSON.stringify(req.body));
+app.post('/form',(req, res)=>{
+    // console.log(JSON.stringify(req.body));
 
     board.generateSticky(req.body);
 
-    console.log(board.notes);
-    //send back board (list of all notes currently on board)
-    res.send(board.notes); 
+    res.end();
 });
+
+// handles get request for sticky data from board
+app.get('/board', (req, res)=> {
+
+    console.log('GET request');
+    console.log(board.notes);
+
+    //send list of all stickies currently on board
+    res.send(board.notes);
+})
 
 app.listen(process.env.PORT || port, () => console.log(`http://localhost:${port}`));

@@ -8,20 +8,10 @@ $(document).ready(()=>{
         var description = moodForm.elements['description'].value;
         var data = {mood: mood, description: description};
 
-
         // makes post request 
-        $.post('/form', data, function(response) {
-            console.log(response);
-
+        $.post('/form', data, function() {
             // load board
             window.location.href = '/';
-        
-            // loop over list of stickies, store each sticky
-            for (var i = 0; i < response.length; i++) {
-                sessionStorage.setItem(i, JSON.stringify(response[i]));
-            }
-
-            sessionStorage.setItem("stickies-length", response.length);
         });
 
     });

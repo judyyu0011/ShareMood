@@ -1,6 +1,5 @@
 html, body {
     height: 100%;
-    /* width: 100%; */
 }
 
 #board {
@@ -10,12 +9,12 @@ html, body {
 }
 
 #board-heading {
-    /* padding-top: 40px; */
-    padding-top: 2%;
+    padding-top: 18px;
+    /* padding-top: 2%; */
     position: relative;
     text-align: center;
-    /* font-size: 50px; */
-    font-size: 3vw;
+    font-size: 34px;
+    /* font-size: 3vw; */
 }
 
 #add-mood-button {
@@ -25,22 +24,22 @@ html, body {
     text-align: center;
     display: block;
     margin: auto;
-    margin-top: 2%;
-    /* width: 280px; */
-    width: 17%;
-    font-size: 1.5vw;
-    padding: 0.7%;
+    margin-top: 22px;
+    /* margin-top: 2%; */
+    width: 190px;
+    /* width: 17%; */
+    font-size: 17px;
+    /* font-size: 1.5vw; */
+    font-weight: 600;
+    padding: 8px;
+    /* padding: 0.7%; */
     text-decoration: none;
 }
 
-/* 
-.sticky {
-    display: absolute;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 50px;
-    color: black;
-    font-size: 20px;
-    text-align: center;
-    width: 100px;
-} */
+#stickies {
+    position: relative;
+    top: 10px;
+    width: 1100px;
+    height: 500px;
+    margin: auto;
+}

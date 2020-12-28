@@ -2,6 +2,7 @@ $(document).ready(()=>{
 
     // load board
     $.get('/board', function(data) {
+        var stickiesContainer = document.getElementById('stickies');
         for (var i = 0; i < data.length; i++) {
             var stickyObject = data[i];
 

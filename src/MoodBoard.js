@@ -73,6 +73,7 @@ class MoodBoard {
         if (filtered.length == 0){
             return false;
         }
+        return filtered;
     }
 
     toJSONArray(str){
@@ -89,7 +90,6 @@ class MoodBoard {
 
         for (let i = 1; i < split.length; i++) {
             let strSticky = "{" + split[i];
-            console.log(strSticky);
             let JSONSticky;
             try {
                 JSONSticky = JSON.parse(strSticky);
@@ -98,7 +98,7 @@ class MoodBoard {
                 continue;
             }
         }
-        console.log("To JSON Array:");
+        console.log("Saved stickies:");
         console.log(arr);
         return arr;
     }
@@ -141,8 +141,8 @@ class MoodBoard {
 
     usedCoordinates = new Set();
 
-    // gets position Object from avaliable positions
-    // if no avaliable position, return false
+    // gets position Object from available positions
+    // if no available position, return false
     getStickyPosition(){
         let pos; //JSON with x & y coordinates
 

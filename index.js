@@ -12,7 +12,7 @@ const board = new moodboard.MoodBoard();
 
 // handles post request sent from form submit
 app.post('/form',(req, res)=>{
-    console.log(JSON.stringify(req.body));
+    // console.log(JSON.stringify(req.body));
 
     board.generateSticky(req.body);
 

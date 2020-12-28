@@ -2,13 +2,6 @@ const fs = require('fs');
 // const loadHelper = require('./src/LoadHelper.js');
 
 class MoodBoard {
-    //list of avaliable stickynote positions
-    avaliablePos = [
-        { x: 100, y: 100 },
-        { x: 1000, y: 100 },
-        { x: 795, y: 250 },
-        { x: 550, y: 500 },
-        { x: 399, y: 300}];
 
     //dictionary of moods and their respective stickynote colour
     stickyColours = {
@@ -103,7 +96,6 @@ class MoodBoard {
         return arr;
     }
 
-
     // takes in a JSON object containing mood and message info from frontend form 
     generateSticky(info) {
         let sticky = {};
@@ -158,24 +150,19 @@ class MoodBoard {
         //console.log(this.usedCoordinates);
 
         return JSON.parse(pos);
-
-        // if (this.avaliablePos.length >= 0){
-        //     pos = this.avaliablePos.pop();
-        //     return pos;
-        // } else {
-        //     return false; // no more avaliable positions
-        // }
     }
 
     generateCoordinates() {
 
-        var multiple = 50 - (Math.floor((Math.random() * 10) + 1));
+        var multiple = 50 - Math.floor((Math.random() * 5));
 
-        // generate a random number between 1 and 21, multiply by multiple (x range: 50-1050)
-        var x = Math.floor((Math.random() * 21) + 1) * multiple;
+        console.log(multiple);
 
-        // generate a random number between 3 and 12, multiply by multiple (y range: 150-600)
-        var y = Math.floor((Math.random() * 10) + 1) * multiple;
+        // generate a random number between 0 and 22, multiply by multiple (x range: 50-1050)
+        var x = Math.floor(Math.random() * 22) * multiple;
+
+        // generate a random number between 0 and 10, multiply by multiple (y range: 150-600)
+        var y = Math.floor(Math.random() * 10) * multiple;
 
         return JSON.stringify({x:x, y:y});
     }

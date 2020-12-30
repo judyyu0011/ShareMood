@@ -14,12 +14,14 @@ class MoodBoard {
 
     notes; //list of stickynotes JSON
     takenPos; //list of taken positions 
+    numStickies; //counter of number of stickies on board
 
     dataPath = "./data/stickies.txt";
 
     constructor(){
         this.notes = [];
         this.takenPos = [];
+        this.numStickies = 0;
         this.load();
     }
 
@@ -48,8 +50,8 @@ class MoodBoard {
                         this.notes = filtered;
                     }
                 }
-                // console.log("Saved stickies:");
-                // console.log(this.notes);
+                console.log("Saved stickies:");
+                console.log(this.notes);
             }));
         }  
     }
@@ -61,6 +63,7 @@ class MoodBoard {
             if (elem.hasOwnProperty("colour") && elem.hasOwnProperty("message") &&
             elem.hasOwnProperty("posx") &&elem.hasOwnProperty("posy")){
                 filtered.push(elem);
+                this.numStickies += 1;
             }
         }
         if (filtered.length == 0){
@@ -91,8 +94,6 @@ class MoodBoard {
                 continue;
             }
         }
-        console.log("Saved stickies:");
-        console.log(arr);
         return arr;
     }
 
@@ -102,24 +103,26 @@ class MoodBoard {
         sticky.colour = this.stickyColours[info.mood];
         sticky.message = info.description;
         
-        // let pos = sticky.getStickyPosition();
-        let pos = this.getStickyPosition();
-        if (pos !== false){
-            sticky.posx = pos.x;
-            sticky.posy = pos.y;
-        } else {
-            // throw error here??? We want to throw some 400 error or something to FE
-            // Note to self (Jen): res.send error responses in index.js
+        if (this.numStickies >= 199) { //cap at 200 stickies. If we have 
             // https://codeforgeek.com/handling-http-status-code-like-a-pro/
+            throw new Error("too many stickies");
         }
+        
+        // set sticky positions
+        let pos = this.getStickyPosition();
+        sticky.posx = pos.x;
+        sticky.posy = pos.y;
+        
         // save stickies locally
         this.takenPos.push(pos);
         this.notes.push(sticky);
+        this.numStickies += 1;
 
         // write to disk
         let stringStickies = this.stringifyStickies(this.notes);
         fs.writeFileSync(this.dataPath,stringStickies.toString());
 
+        console.log("new notes on board" + this.notes);
         console.log(this.notes);
     }
 
@@ -146,8 +149,6 @@ class MoodBoard {
             pos = this.generateCoordinates();
         }
         this.usedCoordinates.add(pos);
-
-        //console.log(this.usedCoordinates);
 
         return JSON.parse(pos);
     }

@@ -14,9 +14,20 @@ const board = new moodboard.MoodBoard();
 app.post('/form',(req, res)=>{
     // console.log(JSON.stringify(req.body));
 
-    board.generateSticky(req.body);
+    try {
+        board.generateSticky(req.body);
+        console.log("here!!");
+        res.end();
+    } catch (err){
+        if (err.message == "too many stickies"){
+            res.status(400).send("Board Overcapacity: Too many stickies on board");
+        }
+    }
 
-    res.end();
+    // board.generateSticky(req.body);
+    
+    //res.end();
+    
 });
 
 // handles get request for sticky data from board

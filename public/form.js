@@ -19,7 +19,6 @@ $(document).ready(()=>{
             type: 'post',
             data: data,
             success: function() {
-                console.log('ajax.success');
                 window.location.href = '/';
             },
             error: function(xhr, status) {
@@ -29,12 +28,19 @@ $(document).ready(()=>{
                     return false;
                 }
                 // else continue
-                console.log('ajax.error');
             },
             statusCode: {
-                400: function(response) {
-                    console.log('ajax.statusCode: 400');
+                403: function(response) {
                     alert("Board Overcapacity");
+                },
+                404: function(response) {
+                    alert("URL Not Found");
+                },
+                500: function(response) {
+                    alert("Internal Server Error");
+                },
+                503: function(response) {
+                    alert("Sorry for the inconvenience, we apologize that the server is down.");
                 }
             }
         });

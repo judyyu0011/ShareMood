@@ -19,7 +19,7 @@ app.post('/form',(req, res)=>{
         res.end();
     } catch (err){
         if (err.message == "too many stickies"){
-            res.status(400).send("Board Overcapacity: Too many stickies on board");
+            res.status(403).send("Board Overcapacity: Too many stickies on board");
         }
     }
 

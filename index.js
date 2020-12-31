@@ -31,10 +31,6 @@ app.post('/form',(req, res)=>{
 
 // handles get request for sticky data from board
 app.get('/board', (req, res)=> {
-
-    console.log('GET request');
-    console.log(board.notes);
-
     //send list of all stickies currently on board
     res.send(board.notes);
 })

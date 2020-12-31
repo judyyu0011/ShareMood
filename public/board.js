@@ -15,19 +15,23 @@ $(document).ready(()=>{
 
             var stickyVisual = document.createElement('div');
             stickiesContainer.appendChild(stickyVisual);
-            stickyVisual.innerHTML = stickyMes;
-
-            const stickySize = 50;
-
             stickyVisual.classList.add('sticky');
-
-            stickyVisual.style.position = 'absolute';
             stickyVisual.style.left = stickyPosX + 'px';
             stickyVisual.style.top = stickyPosY + 'px';
-            stickyVisual.style.width = stickySize + 'px';
-            stickyVisual.style.height = stickySize + 'px';
-            stickyVisual.style.fontSize = '12px';
-            stickyVisual.style.backgroundSize = stickySize + "px " + stickySize + "px";
+            stickyVisual.innerHTML = stickyMes;
+            
+            // if description is too long, cut it off and replace with ...
+            if (stickyVisual.innerHTML.length > 15) {
+                stickyVisual.innerHTML = stickyVisual.innerHTML.slice(0, 14) + '...';
+            }
+
+            // store the original description in a hidden child elment
+            var stickyText = document.createElement('div');
+            stickyVisual.appendChild(stickyText);
+            stickyText.className = 'sticky-text';
+
+            stickyText.innerHTML = stickyMes;
+
 
             // set sticky image based on colour
             setBackground(stickyVisual, stickyColor);
@@ -94,7 +98,7 @@ $(document).ready(()=>{
                 var popUpDes = document.createElement('span');
                 popUp.appendChild(popUpDes);
                 popUpDes.className = 'popup-description'
-                popUpDes.innerHTML = sticky.innerHTML;
+                popUpDes.innerHTML = sticky.firstElementChild.innerHTML;
 
                 // sticky close button
                 var closeButton = document.createElement('img');

@@ -45,7 +45,18 @@ html, body {
 }
 
 .sticky {
+    position: absolute;
     cursor: pointer;
+    width: 50px;
+    height: 40px;
+    font-size: 12px;
+    background-size: 50px 50px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.sticky-text {
+    display: none;
 }
 
 .sticky-popup {

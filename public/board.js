@@ -104,7 +104,6 @@ $(document).ready(()=>{
                 var closeButton = document.createElement('img');
                 closeButton.setAttribute("src", "images/close.png");
                 closeButton.setAttribute("width", "35");
-                closeButton.setAttribute("alt", "Close");
                 popUp.appendChild(closeButton);
                 closeButton.className = 'close-button';
 

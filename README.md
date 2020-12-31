@@ -10,5 +10,13 @@ npm install
 To run the web app:
 node .
 
+## How To Use
+Click the "Write down your feelings!" button to add a sticky to the board.
+Select a Mood by clicking 1 of the 5 emoticon buttons.
+Fill out the "Tell us about your day!" section.
+
+A sticky note will be generated representing your mood and describing your day on the home Board page.
+Each sticky note can be clicked to view the message in full.
+
 ## Technical Pre-requisites
 A file named "stickies.txt" must exist within data folder to save and load all stickies data.

@@ -16,7 +16,6 @@ app.post('/form',(req, res)=>{
 
     try {
         board.generateSticky(req.body);
-        console.log("here!!");
         res.end();
     } catch (err){
         if (err.message == "too many stickies"){

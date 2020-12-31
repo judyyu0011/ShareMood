@@ -4,7 +4,7 @@ const OverCapacityError = require('./Errors/OverCapacityError');
 
 class MoodBoard {
 
-    //dictionary of moods and their respective stickynote colour
+    //dictionary of moods and their respective sticky note colour
     stickyColours = {
         "happy": "yellow",
         "sad": "blue",
@@ -80,9 +80,9 @@ class MoodBoard {
         sticky.colour = this.stickyColours[info.mood];
         sticky.message = info.description;
         
-        if (this.numStickies >= 199) { //cap at 200 stickies. If we have 
+        if (this.numStickies >= 199) { //cap at 200 stickies
             // https://codeforgeek.com/handling-http-status-code-like-a-pro/
-            throw new OverCapacityError("too many stickies");
+            throw new OverCapacityError.OverCapacityError("OverCapacityError");
         }
         
         // set sticky positions

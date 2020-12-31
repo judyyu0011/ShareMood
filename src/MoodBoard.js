@@ -1,5 +1,6 @@
 const fs = require('fs');
-// const loadHelper = require('./src/LoadHelper.js');
+const LoadHelper = require('./LoadHelper');
+const OverCapacityError = require('./Errors/OverCapacityError');
 
 class MoodBoard {
 
@@ -43,7 +44,8 @@ class MoodBoard {
                 let str = fs.readFileSync(this.dataPath).toString();
                 // let converted = loadHelper.toJSONArray(str);
                 if (str.length != 0){
-                    let converted = this.toJSONArray(str);
+                    // let converted = this.toJSONArray(str);
+                    let converted = LoadHelper.toJSONArray(str);
                     let filtered = this.filterValidData(converted);
                     // this.notes = converted;
                     if (filtered != false){
@@ -72,31 +74,6 @@ class MoodBoard {
         return filtered;
     }
 
-    toJSONArray(str){
-        let arr = [];
-
-        let split= str.split(',{');
-
-        try {
-            let JSONSticky = JSON.parse(split[0]);
-            arr.push(JSONSticky);
-        } catch (err) {
-            console.log(err);
-        }
-
-        for (let i = 1; i < split.length; i++) {
-            let strSticky = "{" + split[i];
-            let JSONSticky;
-            try {
-                JSONSticky = JSON.parse(strSticky);
-                arr.push(JSONSticky);
-            } catch (err) {
-                continue;
-            }
-        }
-        return arr;
-    }
-
     // takes in a JSON object containing mood and message info from frontend form 
     generateSticky(info) {
         let sticky = {};
@@ -105,7 +82,7 @@ class MoodBoard {
         
         if (this.numStickies >= 199) { //cap at 200 stickies. If we have 
             // https://codeforgeek.com/handling-http-status-code-like-a-pro/
-            throw new Error("too many stickies");
+            throw new OverCapacityError("too many stickies");
         }
         
         // set sticky positions
@@ -122,7 +99,7 @@ class MoodBoard {
         let stringStickies = this.stringifyStickies(this.notes);
         fs.writeFileSync(this.dataPath,stringStickies.toString());
 
-        console.log("new notes on board" + this.notes);
+        console.log("Updated notes on board");
         console.log(this.notes);
     }
 
@@ -157,7 +134,7 @@ class MoodBoard {
 
         var multiple = 50 - Math.floor((Math.random() * 5));
 
-        console.log(multiple);
+        //console.log(multiple);
 
         // generate a random number between 0 and 22, multiply by multiple (x range: 50-1050)
         var x = Math.floor(Math.random() * 22) * multiple;

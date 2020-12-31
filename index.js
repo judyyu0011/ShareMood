@@ -17,15 +17,9 @@ app.post('/form',(req, res)=>{
     try {
         board.generateSticky(req.body);
         res.end();
-    } catch (err){
-        if (err.message == "too many stickies"){
-            res.status(403).send("Board Overcapacity: Too many stickies on board");
-        }
+    } catch (OverCapacityError){
+        res.status(403).send("Board Overcapacity: Too many stickies on board");
     }
-
-    // board.generateSticky(req.body);
-    
-    //res.end();
     
 });
 

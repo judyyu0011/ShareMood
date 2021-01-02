@@ -52,7 +52,7 @@ $(document).ready(()=>{
         }
 
         function isNotAppropriate(des) {
-            badWords = ['fuck', 'cunt', '🖕', 'bitch', 'nigga', 'nigger', 'retarded', 'chink', 'fag'];
+            badWords = ['fuck', 'cunt', '🖕', 'bitch', 'nigga', 'nigger', 'retarded', 'chink', 'fag', 'ass'];
             for (const word of badWords) {
                 if (des.includes(word)) return true;
             }

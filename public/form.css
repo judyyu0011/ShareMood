@@ -1,7 +1,6 @@
 .form-container {
     width: 800px;
-    height: 1000px;
-    /* background-color: rgb(255, 255, 221);  */
+    height: 600px;
     margin: auto;
     position: relative;
 }
@@ -17,8 +16,7 @@
 
 .form-content {
     position: relative;
-    top: 150px;
-    /* background-color: aqua; */
+    top: 100px;
 }
 
 .emojis {
@@ -26,7 +24,6 @@
     width: 520px;
     margin: auto;
     display: flex;
-    
 }
 
 /* HIDE RADIO */
@@ -74,7 +71,7 @@
 
 .description-container {
     position: relative;
-    top: 30px;
+    top: 10px;
     width: 500px;
     margin: auto;
 }
@@ -99,7 +96,7 @@ textarea {
 .submit-button {
     display: block;
     position: relative;
-    top: 300px;
+    top: 280px;
     margin: auto;
     width: 100px;
     height: 30px;

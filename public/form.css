@@ -1,3 +1,7 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 .form-container {
     width: 800px;
     height: 600px;
@@ -9,10 +13,10 @@
     position: relative;
     font-size: 36px;
     margin: auto;
-    width: 400px;
+    width: 450px;
     top: 50px;
+    text-align: center;
 }
-
 
 .form-content {
     position: relative;

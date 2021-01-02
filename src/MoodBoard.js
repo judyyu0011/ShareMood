@@ -136,11 +136,11 @@ class MoodBoard {
 
         //console.log(multiple);
 
-        // generate a random number between 0 and 22, multiply by multiple (x range: 50-1050)
-        var x = Math.floor(Math.random() * 22) * multiple;
+        // generate a random number between 0 and 22, multiply by multiple (x range: 0-1300)
+        var x = Math.floor(Math.random() * 26) * multiple;
 
-        // generate a random number between 0 and 10, multiply by multiple (y range: 150-600)
-        var y = Math.floor(Math.random() * 10) * multiple;
+        // generate a random number between 0 and 10, multiply by multiple (y range: 0-650)
+        var y = Math.floor(Math.random() * 12.5) * multiple;
 
         return JSON.stringify({x:x, y:y});
     }

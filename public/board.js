@@ -21,8 +21,8 @@ $(document).ready(()=>{
             stickyVisual.innerHTML = stickyMes;
             
             // if description is too long, cut it off and replace with ...
-            if (stickyVisual.innerHTML.length > 15) {
-                stickyVisual.innerHTML = stickyVisual.innerHTML.slice(0, 14) + '...';
+            if (stickyVisual.innerHTML.length > 18) {
+                stickyVisual.innerHTML = stickyVisual.innerHTML.slice(0, 17) + '...';
             }
 
             // store the original description in a hidden child elment

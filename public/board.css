@@ -2,18 +2,23 @@ html, body {
     height: 100%;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 #board {
-    background-image: url('./images/background-image.png');
+    background-image: url('./images/background.png');
     height: 100%;
     width: 100%;
 }
 
 #board-heading {
-    padding-top: 18px;
+    padding-top: 15px;
     /* padding-top: 2%; */
     position: relative;
     text-align: center;
     font-size: 34px;
+    font-weight: bold;
     /* font-size: 3vw; */
 }
 
@@ -26,11 +31,11 @@ html, body {
     margin: auto;
     margin-top: 22px;
     /* margin-top: 2%; */
-    width: 190px;
+    width: 200px;
     /* width: 17%; */
     font-size: 17px;
     /* font-size: 1.5vw; */
-    font-weight: 600;
+    font-weight: 400;
     padding: 8px;
     /* padding: 0.7%; */
     text-decoration: none;
@@ -38,21 +43,21 @@ html, body {
 
 #stickies {
     position: relative;
-    top: 10px;
-    width: 1100px;
-    height: 500px;
+    top: 20px;
+    width: 1350px;
+    height: 625px;
     margin: auto;
 }
 
 .sticky {
     position: absolute;
     cursor: pointer;
-    width: 50px;
-    height: 40px;
+    width: 45px;
+    height: 43px;
     font-size: 12px;
     background-size: 50px 50px;
-    padding-top: 10px;
-    text-align: center;
+    padding-top: 7px;
+    padding-left: 5px;
 }
 
 .sticky-text {
@@ -93,4 +98,10 @@ html, body {
     top: 50px;
     margin: auto;
     width: 480px;
+}
+
+#logo {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
 }

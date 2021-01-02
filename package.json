@@ -1,21 +1,22 @@
 {
-  "name": "hackcamp",
+  "name": "sharemood",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/judyyu0011/HackCamp.git"
+    "url": "git+https://github.com/judyyu0011/ShareMood.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/judyyu0011/HackCamp/issues"
+    "url": "https://github.com/judyyu0011/ShareMood/issues"
   },
-  "homepage": "https://github.com/judyyu0011/HackCamp#readme",
+  "homepage": "https://github.com/judyyu0011/ShareMood#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.5",

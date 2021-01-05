@@ -1,4 +1,3 @@
-<div align=”center”><img src="./public/images/logo.png" alt="ShareMood" width="200" height="240"></div>
 <p align="center">
   <img width="200" height="240" src="./public/images/logo.png">
 </p>

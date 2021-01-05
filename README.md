@@ -1,3 +1,4 @@
+![ShareMood](./public/images/logo.png)
 # ShareMood
 With COVID-19 increasing the distance between people and work from home becoming the new norm, growing concerns for mental health have become apparent. According to a survey by TELUS International, 45% of employees felt less healthy mentally while working from home during the pandemic citing feelings of loneliness, anxiety, and depression. How can employers check-in before their employees check out? 
 
@@ -5,13 +6,13 @@ ShareMood is an interactive platform for employees to check-in by anonymously sh
 
 ## Getting Started
 git clone repo using SSH or HTTP\
-npm install
+*npm install*
 
 To run the web app:
-node .\
+*node .*
 
 Alternatively for dev purposes:
-nodemon .
+*nodemon .*
 
 ## How To Use
 Click the "Write down your feelings!" button to add a sticky to the board.\
@@ -24,4 +25,4 @@ Sticky notes can be clicked such that a pop-up will appear on screen displaying 
 Only workplace appropriate language is allowed.
 
 ## Technical Pre-requisites
-A file named "stickies.txt" must exist within ./data folder to save and load all stickies data.
+A file named *stickies.txt* must exist within *./data* folder to save and load all stickies data.

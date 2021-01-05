@@ -8,6 +8,8 @@ $(document).ready(()=>{
         for (var i = 0; i < data.length; i++) {
             var stickyObject = data[i];
 
+            var stickyId = stickyObject.id;
+            var stickyMood = stickyObject.mood;
             var stickyMes = stickyObject.message;
             var stickyColor = stickyObject.colour;
             var stickyPosX = stickyObject.posx;
@@ -82,17 +84,18 @@ $(document).ready(()=>{
                 popUp.appendChild(mood);
                 mood.className = ('popup-mood');
 
-                if (sticky.classList.contains('purple')) {
-                    mood.innerHTML = 'Anxious';
-                } else if (sticky.classList.contains('blue')) {
-                    mood.innerHTML = 'Sad';
-                } else if (sticky.classList.contains('green')) {
-                    mood.innerHTML = 'Meh';
-                } else if (sticky.classList.contains('yellow')) {
-                    mood.innerHTML = 'Happy';
-                } else if (sticky.classList.contains('orange')) {
-                    mood.innerHTML = 'Excited';
-                }
+                mood.innerHTML = stickyMood;
+                // if (sticky.classList.contains('purple')) {
+                //     mood.innerHTML = 'Anxious';
+                // } else if (sticky.classList.contains('blue')) {
+                //     mood.innerHTML = 'Sad';
+                // } else if (sticky.classList.contains('green')) {
+                //     mood.innerHTML = 'Meh';
+                // } else if (sticky.classList.contains('yellow')) {
+                //     mood.innerHTML = 'Happy';
+                // } else if (sticky.classList.contains('orange')) {
+                //     mood.innerHTML = 'Excited';
+                // }
 
                 // sticky description
                 var popUpDes = document.createElement('span');

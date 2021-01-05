@@ -6,11 +6,18 @@ class MoodBoard {
 
     //dictionary of moods and their respective sticky note colour
     stickyColours = {
-        "happy": "yellow",
-        "sad": "blue",
-        "anxious": "purple",
-        "neutral": "green",
-        "excited": "orange"
+        // "happy": "yellow",
+        // "sad": "blue",
+        // "anxious": "purple",
+        // "neutral": "green",
+        // "excited": "orange",
+        // "reply": "grey"
+        "Happy": "yellow",
+        "Sad": "blue",
+        "Anxious": "purple",
+        "Neutral": "green",
+        "Excited": "orange",
+        "Reply": "grey"
     }
 
     notes; //list of stickynotes JSON
@@ -77,12 +84,23 @@ class MoodBoard {
     // takes in a JSON object containing mood and message info from frontend form 
     generateSticky(info) {
         let sticky = {};
+        sticky.id = this.numStickies + 1;
+        // alternatively for set 3 digit ID for aesthetic purposes, type string
+        // sticky.id = ("00" + this.numStickies + 1).slice(-3);
+
         sticky.colour = this.stickyColours[info.mood];
+        sticky.mood = info.mood;
         sticky.message = info.description;
         
         if (this.numStickies >= 199) { //cap at 200 stickies
             // https://codeforgeek.com/handling-http-status-code-like-a-pro/
             throw new OverCapacityError.OverCapacityError("OverCapacityError");
+        }
+
+        if (info.mood != "Reply"){
+            sticky.parent = 0;
+        } else {
+            sticky.parent = info.parent;
         }
         
         // set sticky positions
@@ -91,7 +109,7 @@ class MoodBoard {
         sticky.posy = pos.y;
         
         // save stickies locally
-        this.takenPos.push(pos);
+        this.takenPos.push(pos); //is this needed
         this.notes.push(sticky);
         this.numStickies += 1;
 
@@ -103,6 +121,7 @@ class MoodBoard {
         console.log(this.notes);
     }
 
+    // helper function to convert JSON stickies into strings to save onto disk
     stringifyStickies(stickies){
         let stringStickies = [];
         for (let sticky of stickies){

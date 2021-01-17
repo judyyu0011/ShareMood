@@ -75,6 +75,7 @@ $(document).ready(()=>{
                 var popUp = document.createElement('div');
                 popUpContainer.appendChild(popUp);
                 popUp.classList.add('sticky-popup');
+                popUp.classList.add('animate');
                 popUp.style.backgroundImage = sticky.style.backgroundImage;
 
                 // sticky mood

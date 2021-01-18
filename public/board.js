@@ -62,6 +62,22 @@ $(document).ready(()=>{
         var popUpContainer = document.createElement('div');
         board.appendChild(popUpContainer);
 
+        popUpContainer.className = 'popup-container';
+
+
+        // close sticky when user clicks anywhere outside of sticky
+        window.onclick = function(event) {
+            if (event.target == popUpContainer) {
+                // disable opaque background
+                popUpContainer.style.display = "none";
+
+                // close sticky
+                while (popUpContainer.firstChild) {
+                    popUpContainer.removeChild(popUpContainer.firstChild);
+                }
+            }
+        }
+
         // add an event listener on every sticky
         // a pop up opens upon click
         for (const sticky of stickyList) {
@@ -71,6 +87,9 @@ $(document).ready(()=>{
                 while (popUpContainer.firstChild) {
                     popUpContainer.removeChild(popUpContainer.firstChild);
                 }
+
+                // enable opacity background behind sticky
+                popUpContainer.style.display="block";
 
                 var popUp = document.createElement('div');
                 popUpContainer.appendChild(popUp);
@@ -101,24 +120,61 @@ $(document).ready(()=>{
                 popUpDes.className = 'popup-description'
                 popUpDes.innerHTML = sticky.firstElementChild.innerHTML;
 
-                // sticky close button
-                var closeButton = document.createElement('img');
-                closeButton.setAttribute("src", "images/close.png");
-                closeButton.setAttribute("width", "35");
-                popUp.appendChild(closeButton);
-                closeButton.className = 'close-button';
+                var closeContainer = document.createElement('div');
+                closeContainer.className = 'close-stickie-container'; //may have to make another close container
+                popUp.appendChild(closeContainer);
+
+                var closeButton = document.createElement('span');
+                closeContainer.appendChild(closeButton);
+
+                closeButton.innerHTML = '&times;';
+                // popUp.appendChild(closeButton);
+                closeButton.className = 'close-stickie-button';
 
                 closeButton.addEventListener('click', function() {
+                    // disable opacity background
+                    popUpContainer.style.display = "none";
+
+                    // remove stickies
                     while (popUpContainer.firstChild) {
                         popUpContainer.removeChild(popUpContainer.firstChild);
                     }
                 })
                 
-                
             });
         }
-
-
-
     });
+
+
+
+    $('#login').submit((e)=> {
+        e.preventDefault(); // i love you preventDefault IDK what you do but I appreciate you <3
+
+        var form = document.forms['login'];
+        var username = form.elements['uname'].value;
+        var password = form.elements['psw'].value;
+
+        var data = {username : username, password: password}
+        console.log(data);
+        $.post('/dashboard', data, function(data, status) {
+            if (data == "denied") {
+                // alert("Wrong username or password.");
+                for (e of document.getElementsByClassName('login-input')) {
+                    e.style.backgroundColor = "#ffcccc";
+                } 
+                document.getElementById('invalid-password-warning').style.display = "inline";
+            } else {
+                window.location.href = '/form.html'; //placeholder
+            }
+        });
+    });
+
 });
+
+function closeLogin() {
+    document.getElementById('login-container').style.display='none';
+    document.getElementById('invalid-password-warning').style.display = 'none';
+    for (e of document.getElementsByClassName('login-input')) {
+        e.style.backgroundColor = '#ffffff';
+    } 
+}

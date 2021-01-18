@@ -73,4 +73,6 @@ $(document).ready(()=>{
         }
         return 'No mood found';
     }
+
+
 });

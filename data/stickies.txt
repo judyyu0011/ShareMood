@@ -1,1 +1,1 @@
-{"colour":"orange","message":"Happy new year!!","posx":705,"posy":235}
+{"colour":"orange","message":"Happy new year!!","posx":705,"posy":235},{"colour":"green","message":"cvbvbv","posx":1008,"posy":96}

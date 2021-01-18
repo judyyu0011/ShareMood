@@ -158,14 +158,23 @@ $(document).ready(()=>{
         console.log(data);
         $.post('/dashboard', data, function(data, status) {
             if (data == "denied") {
-                alert("Wrong username or password.")
+                // alert("Wrong username or password.");
+                for (e of document.getElementsByClassName('login-input')) {
+                    e.style.backgroundColor = "#ffcccc";
+                } 
+                document.getElementById('invalid-password-warning').style.display = "inline";
             } else {
                 window.location.href = '/form.html'; //placeholder
             }
         });
     });
 
-
-
-
 });
+
+function closeLogin() {
+    document.getElementById('login-container').style.display='none';
+    document.getElementById('invalid-password-warning').style.display = 'none';
+    for (e of document.getElementsByClassName('login-input')) {
+        e.style.backgroundColor = '#ffffff';
+    } 
+}

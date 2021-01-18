@@ -154,7 +154,8 @@ body {
     right: 3%;
 }
 
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] { */
+.login-input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -226,7 +227,7 @@ input[type=text], input[type=password] {
     background-color: #F47E7E;
     color: white;
     padding: 10px 10px;
-    margin: 8px 0;
+    margin-top: 20px;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -234,6 +235,12 @@ input[type=text], input[type=password] {
   
 #login-submit-button:hover {
     opacity: 0.8;
+}
+
+#invalid-password-warning {
+    display: none;
+    color: red;
+    width: 100%;
 }
 
 

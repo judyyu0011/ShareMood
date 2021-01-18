@@ -64,6 +64,20 @@ $(document).ready(()=>{
 
         popUpContainer.className = 'popup-container';
 
+
+        // close sticky when user clicks anywhere outside of sticky
+        window.onclick = function(event) {
+            if (event.target == popUpContainer) {
+                // disable opaque background
+                popUpContainer.style.display = "none";
+
+                // close sticky
+                while (popUpContainer.firstChild) {
+                    popUpContainer.removeChild(popUpContainer.firstChild);
+                }
+            }
+        }
+
         // add an event listener on every sticky
         // a pop up opens upon click
         for (const sticky of stickyList) {
@@ -106,11 +120,6 @@ $(document).ready(()=>{
                 popUpDes.className = 'popup-description'
                 popUpDes.innerHTML = sticky.firstElementChild.innerHTML;
 
-                // sticky close button
-                // var closeButton = document.createElement('img');
-                // closeButton.setAttribute("src", "images/close.png");
-                // closeButton.setAttribute("width", "35");
-                // Jen's hopeful tweaks for hover
                 var closeContainer = document.createElement('div');
                 closeContainer.className = 'close-stickie-container'; //may have to make another close container
                 popUp.appendChild(closeContainer);
@@ -134,8 +143,29 @@ $(document).ready(()=>{
                 
             });
         }
-
-
-
     });
+
+
+
+    $('#login').submit((e)=> {
+        e.preventDefault(); // i love you preventDefault IDK what you do but I appreciate you <3
+
+        var form = document.forms['login'];
+        var username = form.elements['uname'].value;
+        var password = form.elements['psw'].value;
+
+        var data = {username : username, password: password}
+        console.log(data);
+        $.post('/dashboard', data, function(data, status) {
+            if (data == "denied") {
+                alert("Wrong username or password.")
+            } else {
+                window.location.href = '/form.html'; //placeholder
+            }
+        });
+    });
+
+
+
+
 });

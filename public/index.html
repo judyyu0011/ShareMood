@@ -25,6 +25,30 @@
             <img id="logo" src="images/logo.png" width="70"> 
         </div>
 
+        <button id="login-button" onclick="document.getElementById('login-container').style.display='block'" style="width:auto;">Admin Login</button>
+
+        <div id="login-container" class="modal">
+
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/login-form" method="post">
+
+                <div class="close-container">
+                    <span onclick="document.getElementById('login-container').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="login-form">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button id="login-submit-button" type="submit">Login</button>
+                </div>
+
+            </form>
+        </div>
+
     </div>
 </body>
 

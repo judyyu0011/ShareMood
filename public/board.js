@@ -62,6 +62,8 @@ $(document).ready(()=>{
         var popUpContainer = document.createElement('div');
         board.appendChild(popUpContainer);
 
+        popUpContainer.className = 'popup-container';
+
         // add an event listener on every sticky
         // a pop up opens upon click
         for (const sticky of stickyList) {
@@ -71,6 +73,9 @@ $(document).ready(()=>{
                 while (popUpContainer.firstChild) {
                     popUpContainer.removeChild(popUpContainer.firstChild);
                 }
+
+                // enable opacity background behind sticky
+                popUpContainer.style.display="block";
 
                 var popUp = document.createElement('div');
                 popUpContainer.appendChild(popUp);
@@ -102,18 +107,30 @@ $(document).ready(()=>{
                 popUpDes.innerHTML = sticky.firstElementChild.innerHTML;
 
                 // sticky close button
-                var closeButton = document.createElement('img');
-                closeButton.setAttribute("src", "images/close.png");
-                closeButton.setAttribute("width", "35");
-                popUp.appendChild(closeButton);
-                closeButton.className = 'close-button';
+                // var closeButton = document.createElement('img');
+                // closeButton.setAttribute("src", "images/close.png");
+                // closeButton.setAttribute("width", "35");
+                // Jen's hopeful tweaks for hover
+                var closeContainer = document.createElement('div');
+                closeContainer.className = 'close-stickie-container'; //may have to make another close container
+                popUp.appendChild(closeContainer);
+
+                var closeButton = document.createElement('span');
+                closeContainer.appendChild(closeButton);
+
+                closeButton.innerHTML = '&times;';
+                // popUp.appendChild(closeButton);
+                closeButton.className = 'close-stickie-button';
 
                 closeButton.addEventListener('click', function() {
+                    // disable opacity background
+                    popUpContainer.style.display = "none";
+
+                    // remove stickies
                     while (popUpContainer.firstChild) {
                         popUpContainer.removeChild(popUpContainer.firstChild);
                     }
                 })
-                
                 
             });
         }

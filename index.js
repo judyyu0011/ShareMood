@@ -25,6 +25,11 @@ app.post('/form',(req, res)=>{
     }
 });
 
+app.post('/login-form', (req, res)=>{
+    res.send(req.body.uname);
+
+});
+
 // handles get request for sticky data from board
 app.get('/board', (req, res)=> {
     //send list of all stickies currently on board

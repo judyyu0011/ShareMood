@@ -155,7 +155,6 @@ $(document).ready(()=>{
         var password = form.elements['psw'].value;
 
         var data = {username : username, password: password}
-        console.log(data);
         $.post('/dashboard', data, function(data, status) {
             if (data == "denied") {
                 // alert("Wrong username or password.");

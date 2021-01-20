@@ -77,13 +77,17 @@ class MoodBoard {
     // takes in a JSON object containing mood and message info from frontend form 
     generateSticky(info) {
         let sticky = {};
-        sticky.colour = this.stickyColours[info.mood];
-        sticky.message = info.description;
         
         if (this.numStickies >= 199) { //cap at 200 stickies
             // https://codeforgeek.com/handling-http-status-code-like-a-pro/
             throw new OverCapacityError.OverCapacityError("OverCapacityError");
         }
+        sticky.colour = this.stickyColours[info.mood];
+        sticky.message = info.description;
+
+        var date = new Date();
+        sticky.date = date.toDateString();
+        sticky.dayOfWeek = date.getDay();
         
         // set sticky positions
         let pos = this.getStickyPosition();

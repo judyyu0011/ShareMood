@@ -13,6 +13,7 @@ $(document).ready(()=>{
         } else {
             var data = {mood: mood, description: description};
 
+            
             // makes post request 
             // $.post('/form', data, function() {
             //     // load board

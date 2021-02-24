@@ -4,6 +4,7 @@ $(document).ready(() => {
     var board = document.getElementById("board");
     var stickiesContainer = document.getElementById("stickies");
 
+    // loop over all stickies
     for (var i = 0; i < data.length; i++) {
       var stickyObject = data[i];
 
@@ -101,18 +102,6 @@ $(document).ready(() => {
 
         mood.innerHTML = stickyMood;
 
-        // if (sticky.classList.contains('purple')) {
-        //     mood.innerHTML = 'Anxious';
-        // } else if (sticky.classList.contains('blue')) {
-        //     mood.innerHTML = 'Sad';
-        // } else if (sticky.classList.contains('green')) {
-        //     mood.innerHTML = 'Meh';
-        // } else if (sticky.classList.contains('yellow')) {
-        //     mood.innerHTML = 'Happy';
-        // } else if (sticky.classList.contains('orange')) {
-        //     mood.innerHTML = 'Excited';
-        // }
-
         // sticky description
         var popUpDes = document.createElement("span");
         popUp.appendChild(popUpDes);
@@ -143,6 +132,7 @@ $(document).ready(() => {
     }
   });
 
+  // handles admin login
   $("#login").submit((e) => {
     e.preventDefault(); // i love you preventDefault IDK what you do but I appreciate you <3
 
@@ -166,6 +156,7 @@ $(document).ready(() => {
   });
 });
 
+// closes the login window
 function closeLogin() {
   document.getElementById("login-container").style.display = "none";
   document.getElementById("invalid-password-warning").style.display = "none";

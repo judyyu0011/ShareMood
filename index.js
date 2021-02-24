@@ -4,26 +4,29 @@ const main = require("./src/Main.js");
 const adminVerifier = require("./src/AdminVerifier.js");
 const moodboard = require("./src/MoodBoard.js");
 const overcapacityError = require("./src/Errors/OverCapacityError.js");
-require("dotenv").config();
-
-const mongoose = require("mongoose");
-const Sticky = require("./models/sticky.js");
 
 // express app
 const app = express();
-
 const port = 3000;
+
+require("dotenv").config();
+
+// mongoose
+const mongoose = require("mongoose");
+const Sticky = require("./models/sticky.js");
 
 // connect to mongodb
 const dbURI = process.env.DBURI;
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) =>
+    // initiate app once database connection is established
     app.listen(process.env.PORT || port, () =>
       console.log(`http://localhost:${port}`)
     )
   )
   .catch((err) => console.log(err));
+
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,12 +39,13 @@ const verifier = new adminVerifier.AdminVerifier();
 
 // handles post request sent from form submit
 app.post("/form", (req, res) => {
-  // console.log(JSON.stringify(req.body));
 
   try {
     const sticky = new Sticky(board.generateSticky(req.body));
 
     console.log(sticky);
+
+    // save sticky to database
     sticky
       .save()
       .then((result) => {
@@ -50,7 +54,7 @@ app.post("/form", (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    // res.end();
+    
   } catch (e) {
     if (e instanceof overcapacityError.OverCapacityError) {
       res.status(403).send("Board Overcapacity: Too many stickies on board");
@@ -60,8 +64,7 @@ app.post("/form", (req, res) => {
 
 // handles get request for sticky data from board
 app.get("/board", (req, res) => {
-  //send list of all stickies currently on board
-  //res.send(board.notes);
+  // find all Sticky instances from database
   Sticky.find()
     .then((result) => {
       res.send(result); //sends all sticky objects to browser

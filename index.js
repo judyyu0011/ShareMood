@@ -80,6 +80,7 @@ app.post("/dashboard", (req, res) => {
 
   if (isAdmin) {
     res.send("hi " + req.body.username + "!"); //placeholder
+    // res.redirect('/admin')
     res.end();
   } else if (!isAdmin) {
     res.send("denied");

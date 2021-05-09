@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(207, 207, 216);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    background-color: white;
+    height: 46px;
+    width: 100%;
+}
+
+.header-text {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 30px;
+}
+
+.content-container {
+    position: relative;
+    top: 15px;
+    width: 70%;
+    margin: auto;
+    background-color: white;
+}
+
+.stat-container {
+    position: relative;
+    background-color: white;
+    height: 100px;
+    width: 49%;
+    text-align: center;
+}
+
+.stat-desc {
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.stat {
+    padding-top: 13px;
+    font-size: 32px;
+    color:#3d45a4;
+    font-weight: bold;
+}
+
+.graph-container {
+    margin-top: 15px;
+    position: relative;
+    background-color: white;
+    height: 350px;
+    width: 49%;
+    text-align: center;
+}
+
+.graph {
+    margin-top: 30px;
+}
+
+.table-container {
+    margin-top: 15px;
+    position: relative;
+    background-color: white;
+    height: 350px;
+    width: 49%;
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

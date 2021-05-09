@@ -150,7 +150,7 @@ $(document).ready(() => {
         document.getElementById("invalid-password-warning").style.display =
           "inline";
       } else {
-        window.location.href = "/form.html"; //placeholder
+        window.location.href = "/admin.html"; //placeholder
       }
     });
   });

@@ -25,31 +25,7 @@
             <img id="logo" src="images/logo.png" width="70"> 
         </div>
 
-        <button id="login-button" onclick="document.getElementById('login-container').style.display='block'" style="width:auto;">Admin Login</button>
-
-        <div id="login-container" class="modal">
-
-            <!-- Modal Content -->
-            <!-- <form id="login" class="modal-content animate" action="/dashboard" method="post"> -->
-
-            <form id="login" class="modal-content animate" method="post">
-
-                <div class="close-container">
-                    <span onclick="closeLogin()" class="close" title="Close Modal">&times;</span>
-                </div>
-
-                <div class="login-form">
-                    <label for="uname"><b>Username</b></label>
-                    <input class="login-input" type="text" placeholder="Enter Username" name="uname" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input class="login-input" type="password" placeholder="Enter Password" name="psw" required>
-                    <span id="invalid-password-warning">Wrong username or password. Try again.</span>
-                    <button id="login-submit-button" type="submit">Login</button>
-                </div>
-
-            </form>
-        </div>
+        <a id="login-button" href="admin.html" style="width:auto;">Admin Login</button>
 
     </div>
 </body>

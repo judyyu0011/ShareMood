@@ -8,17 +8,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src=""></script>
+    <script src="admin.js"></script>
     <title>Dashboard</title>
 
 </head>
 <body>
+
     <header>
         <div class="header">
             <div class="header-text">Dashboard</div>
+            <div class="home-icon"><a href="/"><img src="images/home.png" height=35></a></div>
         </div>
     </header>
-    <div class="content-container">
+
+    <div id="login-container" class="modal">
+
+        <!-- Modal Content -->
+        <!-- <form id="login" class="modal-content animate" action="/dashboard" method="post"> -->
+
+        <form id="login" class="modal-content animate">
+
+            <!-- <div class="close-container">
+                <span onclick="closeLogin()" class="close" title="Close Modal">&times;</span>
+            </div> -->
+
+            <div class="login-form">
+                <label for="uname"><b>Username</b></label>
+                <input class="login-input" type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input class="login-input" type="password" placeholder="Enter Password" name="psw" required>
+                <span id="invalid-password-warning">Wrong username or password. Try again.</span>
+                <button id="login-submit-button" type="submit">Login</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div id="content-container">
         <div class="stat-container left">
             <div class="stat-desc">Stickies posted today</div>
             <!-- dummy -->

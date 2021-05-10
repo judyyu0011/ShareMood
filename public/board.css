@@ -220,6 +220,7 @@ body {
     top: 3%;
     right: 3%;
     font-size: 15px;
+    text-decoration: none;
 }
 
 #login-submit-button {

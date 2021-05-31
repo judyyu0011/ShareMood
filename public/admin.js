@@ -26,6 +26,15 @@ $(document).ready(() => {
     });
   });
 
+
+  $.get("/total-stickies", function (data) {
+    document.getElementById("stat-total").innerHTML = data;
+  });
+
+  $.get("/week-stickies", function (data) {
+    document.getElementById("stat-this-week").innerHTML = data;
+  });
+
 });
 
 

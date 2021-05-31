@@ -74,6 +74,41 @@ app.get("/board", (req, res) => {
     });
 });
 
+
+// get total count of stickies from db, send to admin.js
+app.get("/total-stickies", (req, res) => {
+    Sticky.countDocuments({})
+      .then((count) => {
+        res.send(String(count));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+});
+
+
+// get count of stickies created within this week from from db
+// send to admin.js
+app.get("/week-stickies", (req, res) => {
+  var date = new Date();
+  var aWeekAgo = date.getDate() - 7;
+  date.setDate(aWeekAgo);
+
+  Sticky.countDocuments({
+    createdAt: {
+      $gte: date,
+    },
+  })
+    .then((count) => {
+      res.send(String(count));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
+
 // handles admin login request
 app.post("/dashboard", (req, res) => {
   var isAdmin = verifier.isAdmin(req.body);

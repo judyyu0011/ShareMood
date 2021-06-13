@@ -123,45 +123,31 @@ app.get("/last-week-stickies", (req, res) => {
   }
 
   var newDate = prevMonday;
-  var counts = [];
-
+  let promises = [];
   for (var i = 0; i < 7; i++) {
-    
     var dayOf = new Date(new Date(newDate).setHours(00, 00, 00));
     var dayAfter = new Date(new Date(newDate).setHours(23, 59, 59));
-    console.log("newDate: " + newDate);
-    console.log(dayOf);
-    console.log(dayAfter);
-
-    async function getCount() {
-      var count = await countDocs();
-      counts.push(count);
-      if (counts.length == 7) {
-        console.log(counts);
-        res.send(counts);
-      }
-    }
-
-    function countDocs() {
-      return Sticky.countDocuments({
+    promises.push(
+      Sticky.countDocuments({
         createdAt: {
           $gte: dayOf,
           $lt: dayAfter,
         },
       })
-        .then((count) => {
-          // console.log(count);
-          return count;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    );
 
-    getCount();
     newDate.setDate(newDate.getDate() + 1);
   }
+
+  // Promise.all returns a promise when 
+  // all the promises inside the promises array is resolved.
+  Promise.all(promises).then((counts) => {
+    console.log(counts);
+    res.send(counts);
+  });
 });
+
+
 
 // handles admin login request
 app.post("/dashboard", (req, res) => {

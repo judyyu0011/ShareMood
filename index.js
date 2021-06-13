@@ -148,6 +148,36 @@ app.get("/last-week-stickies", (req, res) => {
 });
 
 
+// get all stickies posted today by mood
+// send to admin.js
+app.get("/today-stickies-by-mood", (req, res) => {
+
+    var moods = ["Anxious", "Sad", "Neutral", "Happy", "Excited"]
+    var today = new Date(new Date().setHours(00, 00, 00));
+    var tmr = new Date(new Date().setHours(23, 59, 59));
+    console.log(today);
+    console.log(tmr);
+    let promises = [];
+
+    moods.forEach(m => {
+      promises.push(
+        Sticky.countDocuments({
+          mood: m,
+          createdAt: {
+            $gte: today,
+            $lt: tmr,
+          },
+        })
+      );
+    });
+
+    // Promise.all returns a promise when
+    // all the promises inside the promises array is resolved.
+    Promise.all(promises).then((counts) => {
+      console.log(counts);
+      res.send(counts);
+    });
+});
 
 // handles admin login request
 app.post("/dashboard", (req, res) => {

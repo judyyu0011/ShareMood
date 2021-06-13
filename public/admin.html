@@ -9,6 +9,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <title>Dashboard</title>
 
 </head>
@@ -57,7 +59,8 @@
         </div>
         
         <div class="graph-container left">
-            <img class="graph" src="images/dummy-bar-chart.png" height=250>
+            <div class="graph-heading">Stickies Posted Last Week</div>
+            <canvas class="graph" id="chart1" width="400" height="250"></canvas>
         </div>
         <div class="graph-container right">
             <img class="graph" src="images/dummy-bar-chart-2.png" height=250>
@@ -67,5 +70,4 @@
 
         </div> -->
     </div>
-    
 </body>

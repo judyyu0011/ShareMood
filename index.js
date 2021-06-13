@@ -27,7 +27,6 @@ mongoose
   )
   .catch((err) => console.log(err));
 
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -39,7 +38,6 @@ const verifier = new adminVerifier.AdminVerifier();
 
 // handles post request sent from form submit
 app.post("/form", (req, res) => {
-
   try {
     const sticky = new Sticky(board.generateSticky(req.body));
 
@@ -54,7 +52,6 @@ app.post("/form", (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    
   } catch (e) {
     if (e instanceof overcapacityError.OverCapacityError) {
       res.status(403).send("Board Overcapacity: Too many stickies on board");
@@ -74,29 +71,31 @@ app.get("/board", (req, res) => {
     });
 });
 
-
 // get total count of stickies from db, send to admin.js
 app.get("/total-stickies", (req, res) => {
-    Sticky.countDocuments({})
-      .then((count) => {
-        res.send(String(count));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  Sticky.countDocuments({})
+    .then((count) => {
+      res.send(String(count));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
-
 
 // get count of stickies created within this week from from db
 // send to admin.js
 app.get("/week-stickies", (req, res) => {
   var date = new Date();
+  var today = date;
+
   var aWeekAgo = date.getDate() - 7;
-  date.setDate(aWeekAgo);
+  var aWeekAgoDate = new Date();
+  aWeekAgoDate.setDate(aWeekAgo);
 
   Sticky.countDocuments({
     createdAt: {
-      $gte: date,
+      $gte: aWeekAgoDate,
+      $lt: today,
     },
   })
     .then((count) => {
@@ -107,7 +106,62 @@ app.get("/week-stickies", (req, res) => {
     });
 });
 
+// get an array of the count of stickies created each day last week
+// send to admin.js
+app.get("/last-week-stickies", (req, res) => {
+  var date = new Date();
+  var day = date.getDay();
+  var prevMonday = new Date();
+  if (day == 1) {
+    // today is monday
+    prevMonday.setDate(date.getDate() - 7);
+  } else if (day == 0) {
+    // today is sunday
+    prevMonday.setDate(date.getDate() - 6);
+  } else {
+    prevMonday.setDate(date.getDate() - (day - 1));
+  }
 
+  var newDate = prevMonday;
+  var counts = [];
+
+  for (var i = 0; i < 7; i++) {
+    
+    var dayOf = new Date(new Date(newDate).setHours(00, 00, 00));
+    var dayAfter = new Date(new Date(newDate).setHours(23, 59, 59));
+    console.log("newDate: " + newDate);
+    console.log(dayOf);
+    console.log(dayAfter);
+
+    async function getCount() {
+      var count = await countDocs();
+      counts.push(count);
+      if (counts.length == 7) {
+        console.log(counts);
+        res.send(counts);
+      }
+    }
+
+    function countDocs() {
+      return Sticky.countDocuments({
+        createdAt: {
+          $gte: dayOf,
+          $lt: dayAfter,
+        },
+      })
+        .then((count) => {
+          // console.log(count);
+          return count;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    getCount();
+    newDate.setDate(newDate.getDate() + 1);
+  }
+});
 
 // handles admin login request
 app.post("/dashboard", (req, res) => {

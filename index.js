@@ -27,7 +27,6 @@ mongoose
   )
   .catch((err) => console.log(err));
 
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -39,7 +38,6 @@ const verifier = new adminVerifier.AdminVerifier();
 
 // handles post request sent from form submit
 app.post("/form", (req, res) => {
-
   try {
     const sticky = new Sticky(board.generateSticky(req.body));
 
@@ -54,7 +52,6 @@ app.post("/form", (req, res) => {
       .catch((err) => {
         console.log(err);
       });
-    
   } catch (e) {
     if (e instanceof overcapacityError.OverCapacityError) {
       res.status(403).send("Board Overcapacity: Too many stickies on board");
@@ -74,12 +71,121 @@ app.get("/board", (req, res) => {
     });
 });
 
+// get total count of stickies from db, send to admin.js
+app.get("/total-stickies", (req, res) => {
+  Sticky.countDocuments({})
+    .then((count) => {
+      res.send(String(count));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+// get count of stickies created within this week from from db
+// send to admin.js
+app.get("/week-stickies", (req, res) => {
+  var date = new Date();
+  var today = date;
+
+  var aWeekAgo = date.getDate() - 7;
+  var aWeekAgoDate = new Date();
+  aWeekAgoDate.setDate(aWeekAgo);
+
+  Sticky.countDocuments({
+    createdAt: {
+      $gte: aWeekAgoDate,
+      $lt: today,
+    },
+  })
+    .then((count) => {
+      res.send(String(count));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+// get an array of the count of stickies created each day last week
+// send to admin.js
+app.get("/last-week-stickies", (req, res) => {
+  var date = new Date();
+  var day = date.getDay();
+  var prevMonday = new Date();
+  if (day == 1) {
+    // today is monday
+    prevMonday.setDate(date.getDate() - 7);
+  } else if (day == 0) {
+    // today is sunday
+    prevMonday.setDate(date.getDate() - 6);
+  } else {
+    prevMonday.setDate(date.getDate() - (day - 1));
+  }
+
+  var newDate = prevMonday;
+  let promises = [];
+  for (var i = 0; i < 7; i++) {
+    var dayOf = new Date(new Date(newDate).setHours(00, 00, 00));
+    var dayAfter = new Date(new Date(newDate).setHours(23, 59, 59));
+    promises.push(
+      Sticky.countDocuments({
+        createdAt: {
+          $gte: dayOf,
+          $lt: dayAfter,
+        },
+      })
+    );
+
+    newDate.setDate(newDate.getDate() + 1);
+  }
+
+  // Promise.all returns a promise when 
+  // all the promises inside the promises array is resolved.
+  Promise.all(promises).then((counts) => {
+    console.log(counts);
+    res.send(counts);
+  });
+});
+
+
+// get all stickies posted today by mood
+// send to admin.js
+app.get("/today-stickies-by-mood", (req, res) => {
+
+    var moods = ["Anxious", "Sad", "Neutral", "Happy", "Excited"]
+    var today = new Date(new Date().setHours(00, 00, 00));
+    var tmr = new Date(new Date().setHours(23, 59, 59));
+    console.log(today);
+    console.log(tmr);
+    let promises = [];
+
+    moods.forEach(m => {
+      promises.push(
+        Sticky.countDocuments({
+          mood: m,
+          createdAt: {
+            $gte: today,
+            $lt: tmr,
+          },
+        })
+      );
+    });
+
+    // Promise.all returns a promise when
+    // all the promises inside the promises array is resolved.
+    Promise.all(promises).then((counts) => {
+      console.log(counts);
+      res.send(counts);
+    });
+});
+
 // handles admin login request
 app.post("/dashboard", (req, res) => {
   var isAdmin = verifier.isAdmin(req.body);
 
   if (isAdmin) {
     res.send("hi " + req.body.username + "!"); //placeholder
+    // res.redirect('/admin')
     res.end();
   } else if (!isAdmin) {
     res.send("denied");

@@ -21,19 +21,14 @@ Alternatively for dev purposes:\
 *nodemon .*
 
 ## How To Use
-
-
 <p align="center">
-
   <img width="1000" src="./public/images/board-screenshot.png">
-
 </p>
-Click the "Write down your feelings!" button to add a sticky to the board.\
-Select a Mood by clicking 1 of the 5 emoticon buttons.\
-Fill out the "Tell us about your day!" section.
 
-A sticky note will be generated representing your mood and describing your day on the board.\
-Sticky notes can be clicked such that a pop-up will appear on screen displaying the message in full.
+Click the "Write down your feelings!" button to add a sticky to the board. Select a Mood by clicking 1 of the 5 emoticon buttons. Fill out the "Tell us about your day!" section.
+
+
+A sticky note will be generated representing your mood and describing your day on the board.Sticky notes can be clicked such that a pop-up will appear on screen displaying the message in full.
 
 Only workplace appropriate language is allowed.
 

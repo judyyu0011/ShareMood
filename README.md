@@ -7,6 +7,10 @@ With COVID-19 increasing the distance between people and work from home becoming
 ShareMood is an interactive platform for employees to check-in by anonymously sharing their current mood. Each submission will be posted to a company-wide board where employees can connect and empathize with each other through comments. With unhappy employees reporting to cost the North American economy over $350 billion per year, anonymity will allow employees to express themselves freely and provide valuable insights for managers to act immediately.
 
 ## Getting Started
+Access the web app at https://share-mood.herokuapp.com/ 
+
+OR
+
 git clone repo using SSH or HTTP\
 *npm install*
 
@@ -25,6 +29,8 @@ A sticky note will be generated representing your mood and describing your day o
 Sticky notes can be clicked such that a pop-up will appear on screen displaying the message in full.
 
 Only workplace appropriate language is allowed.
+
+Login to Admin dashboard to see aggregated data and charts.
 
 ## Technical Pre-requisites
 The database URI must be set and used in index.js for the program (and database) to work

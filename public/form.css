@@ -30,6 +30,10 @@ body {
     display: flex;
 }
 
+.emoji-icon {
+    width: 85px;
+}
+
 /* HIDE RADIO */
 /* width and height are not 0 so the validation message still appears */
 [type=radio] { 
